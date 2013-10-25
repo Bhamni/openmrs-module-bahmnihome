@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.openmrs.module</groupId>
+	<artifactId>bahmnihome</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Bahmni Home Module</name>
+	<description>Configurable Home App for Bahmni</description>
+	<url>https://wiki.openmrs.org/display/docs/Bahmni+Home+Module+Module</url>
+	
+	<developers>
+		<developer>
+			<name>mario-areias</name>
+		</developer>
+	</developers>
+	
+	<organization>
+		<name>Bahmni</name>
+		<url>http://bahmni.org</url>
+	</organization>
+
+	<scm>
+		<connection>scm:git@github.com:bahmni/openmrs-module-bahmnihome.git</connection>
+		<developerConnection>scm:git@github.com:bahmni/openmrs-module-bahmnihome.git</developerConnection>
+		<url>https://github.com/bahmni/openmrs-module-bahmnihome</url>
+	</scm>
+
+	<modules>
+		<module>api</module>
+		<module>omod</module>
+	</modules>
+	
+	<properties>
+		<openMRSVersion>1.9.4</openMRSVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<distributionManagement>
+	    <snapshotRepository>
+	        <id>bahmni-artifactory</id>
+	        <name>bahmni-artifactory-snapshots</name>
+	        <url>http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local</url>
+	    </snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+		
+			<!--
+			Libraries to add as dependencies with compile or runtime scope:
+			Find matching dependencies in the maven central repository.
+			<dependency>
+				<groupId>org.other.library</groupId>
+				<artifactId>library-name</artifactId>
+				<version>library.version</version>
+				<scope>compile</scope>
+			</dependency>
+			-->
+			
+			
+
+			<!-- Begin OpenMRS core -->
+			
+			
+						
+			<!-- End OpenMRS core -->
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<target>1.6</target>
+						<source>1.6</source>
+					</configuration>
+				</plugin>
+				<!--  needed for openmrs-omod
+				<plugin>
+					<groupId>org.openmrs.maven.plugins</groupId>
+					<artifactId>maven-openmrs-plugin</artifactId>
+					<version>1.0.1</version>
+				</plugin>
+				-->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<!-- will require this if we introduce an openmrs omod
+			<repository>
+			<id>openmrs-repo</id>
+			<name>OpenMRS Nexus Repository</name>
+			<url>http://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+		</repository> -->
+		<repository>
+	        <id>bahmni-artifactory</id>
+	        <name>bahmni-artifactory-snapshots</name>
+	        <url>http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local</url>
+	    </repository>	    
+	</repositories>
+
+	<pluginRepositories>
+		<!-- will require this if we introduce an openmrs omod
+		<pluginRepository>
+			<id>openmrs-repo</id>
+			<name>OpenMRS Nexus Repository</name>
+			<url>http://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository> -->
+	</pluginRepositories>
+
+</project>
